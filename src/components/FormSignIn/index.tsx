@@ -111,7 +111,7 @@ export default function FormSignIn() {
                 fullWidth
                 name="password"
                 label="Senha"
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 id="password"
                 autoComplete="current-password"
                 InputProps={{
