@@ -11,7 +11,6 @@ import {
   TableCell,
   TableBody,
   Button,
-  Grid,
 } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
 import Image from "next/image";
@@ -42,7 +41,7 @@ const SearchPage: React.FC = () => {
               src="/logobranco.png"
               alt="Logo da empresa"
               width={100}
-              height={50}
+              height={30}
             />
           </Typography>
           <IconButton color="inherit" onClick={handleLogout}>
@@ -54,7 +53,14 @@ const SearchPage: React.FC = () => {
       <Table sx={{ marginTop: 10 }}>
         <TableHead>
           <TableRow>
-            <TableCell colSpan={6} sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <TableCell
+              colSpan={6}
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
               <Button variant="contained" color="primary">
                 Incluir
               </Button>

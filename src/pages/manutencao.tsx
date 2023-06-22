@@ -25,12 +25,12 @@ const SettingsPage = () => {
     <div>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} >
             <Image
               src="/logobranco.png"
               alt="Logo da empresa"
               width={100}
-              height={50}
+              height={30}
             />
           </Typography>
           <IconButton color="inherit" onClick={handleLogout}>
