@@ -18,7 +18,9 @@ import LogoutIcon from "@mui/icons-material/Logout";
 
 const SettingsPage = () => {
   const handleLogout = () => {
-    console.log("Logout");
+    //remove token
+    removeToken();
+    //redirect user to login
   };
 
   return (
@@ -83,3 +85,7 @@ const SettingsPage = () => {
 };
 
 export default SettingsPage;
+function removeToken() {
+  throw new Error("Function not implemented.");
+}
+

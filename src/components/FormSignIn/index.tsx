@@ -15,6 +15,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import backgroundImg from "../../../public/background.png";
+import Swal from 'sweetalert2';
 
 
 
@@ -29,8 +30,8 @@ type  User = {
 
 
 export default function FormSignIn() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [usuEMailLogin, setEmail] = useState("");
+  const [usuSenhaLogin, setPassword] = useState("");
 
   const [showPassword, setShowPassword] = useState(false);
   const [values, setValues] = useState({
@@ -48,20 +49,26 @@ export default function FormSignIn() {
   
     try {
       const response = await signIn('credentials', {
-        email,
-        password,
+        usuEMailLogin,
+        usuSenhaLogin,
         redirect: false,
-      });
-  
+      }
+      );
+        console.log(response);
       if (response?.error) {
-        // Autenticação falhou, exiba uma mensagem de erro
         console.error(response.error);
       } else {
-        // Autenticação bem-sucedida, redirecione para a página desejada
-        window.location.href = '/manutencao';
+        console.log(response);
+        Swal.fire({
+          title: 'Login realizado com sucesso!',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 1500
+        }).then(() => {
+          window.location.href = '/pesquisa';
+        }); 
       }
     } catch (error) {
-      // Erro durante o processo de autenticação
       console.error(error);
     }
   };
@@ -116,7 +123,7 @@ export default function FormSignIn() {
                 label="Email"
                 name="email"
                 autoComplete="email"
-                value={email}
+                value={usuEMailLogin}
                 onChange={(e) => setEmail(e.target.value)}
                 autoFocus
                 InputProps={{
@@ -135,7 +142,7 @@ export default function FormSignIn() {
                 label="Senha"
                 type={showPassword ? "text" : "password"}
                 id="password"
-                value={password}
+                value={usuSenhaLogin}
                 onChange={(e) => setPassword(e.target.value)}
                 autoComplete="current-password"
                 InputProps={{
